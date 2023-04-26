@@ -22,5 +22,17 @@
     text-transform: uppercase;
 }
 
+select{
+    margin: 0.5rem;
+    color: white;
+    font-weight: bold;
+    background-color: #1bc0e9;
+}
+
+option{
+    font-weight: bold;
+    color: white;
+    background-color: #1bc0e9;
+}
 
 

@@ -11,7 +11,7 @@ export const UserContextProvider = ({ children })=> {
     const loginFetch = async (email, password) => {
         try{
             const body = {email, password}
-            const response = await fetch(`http://localhost:8080/api/auth/login`, {
+            const response = await fetch(`http://localhost:8080/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ export const UserContextProvider = ({ children })=> {
         formData.append('telefono', telefono);
         formData.append('avatar', avatar);
         
-        const response = await fetch(`http://localhost:8080/api/auth/register`, {
+        const response = await fetch(`http://localhost:8080/auth/register`, {
                 method: 'POST',
                 body: formData
             });

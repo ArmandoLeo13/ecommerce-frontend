@@ -1,45 +1,44 @@
-import './ItemDetailContainer.css'
+import '../ItemListContainer/ItemListContainer.css'
 import { useState, useEffect, useContext } from 'react'
-import ItemDetail from '../ItemDetail/ItemDetail'
-import { useParams, Navigate, useNavigate } from 'react-router-dom'
-import { getProductoById } from '../../services/Integration/index.js'
+import ItemList from '../ItemList/ItemList'
+import { getProductoByCategoria } from '../../services/Integration/index.js';
 import { UserContext } from "../../context/UserContext";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Notificacion from '../Notificacion/Notificacion';
 import { SesionExpirada } from '../Notificacion/Partials/Partials';
 
-const ItemDetailContainer = ({ addItem }) => {
-    const [product, setProduct] = useState({})
+const ItemListContainerCategory = ({ greeting }) => {
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const { productId } = useParams();
+    const { isAuthenticated, setIsAuthenticated} = useContext(UserContext);
 
-    const { isAuthenticated, setIsAuthenticated } = useContext(UserContext);
+    const { categoria } = useParams();
     const nav = useNavigate();
 
     if(!isAuthenticated){
         nav('/')
     }
-
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await getProductoById(productId);
+                const response = await getProductoByCategoria(categoria);
                 if(response===404){
                     return (
                         <div>
-                            <h2>No se encontro el producto</h2>
+                            <h2>No se encontraron productos de esta categoria</h2>
                         </div>
                     )
                 }else if(!response){
                     sessionStorage.clear()
                     Notificacion(SesionExpirada);
                     setIsAuthenticated(false)
+                    
                 }
                 else{
-                    setProduct(response);
+                    setProducts(response);
                     setLoading(false);
                 }
-                
             } catch (error) {
                 console.log(error);
                 setLoading(false);
@@ -47,25 +46,25 @@ const ItemDetailContainer = ({ addItem }) => {
         };
 
         fetchProducts();
-    },[productId])
+    },[categoria]);
+     
 
+    
     return(
         <div>
             {
-                !isAuthenticated ?
-                <Navigate to='/' /> :
-                <div className='ItemDetailContainer'>
-                    {   loading ?
+                !isAuthenticated ? <Navigate to='/' /> : <div><h1 className="ItemH1">{greeting}</h1>
+                { loading ?
                     (<div className='cajaLoading'>
                         <h2 className='loading'>Cargando productos...</h2>
                         <div className='spinner'></div>
                     </div>):
-                    <ItemDetail {...product} addItem={addItem}/>
-                    }
-                </div>
-            } 
+                    (<ItemList products={products} />)
+                }</div>
+            }
+            
         </div>
     )
-}
+};
 
-export default ItemDetailContainer;
+export default ItemListContainerCategory;

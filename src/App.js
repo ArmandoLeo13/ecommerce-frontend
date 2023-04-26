@@ -13,6 +13,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Ordenes from './components/Orden/Ordenes';
 import { WebSocketProvider } from './context/WebSocketContext';
 import PreFooter from './components/PreFooter/PreFooter';
+import ItemListContainerCategory from './components/ItemListContainerCategory/ItemListContainerCategory';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Auth />} />
                 <Route path='/home' element={<ItemListContainer/>} />
+                <Route path='/productos/:categoria' element={<ItemListContainerCategory />} />
                 <Route path='/detail/:productId' element={<ItemDetailContainer />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/ordenes' element={<Ordenes />} />

@@ -8,7 +8,7 @@ export const CartContextProvider = ({ children }) => {
 
     const getCarrito = async(userEmail, token) =>{
         try{
-            const res = await fetch(`http://localhost:8080/api/carrito/${userEmail}`,{
+            const res = await fetch(`http://localhost:8080/carrito/${userEmail}`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export const CartContextProvider = ({ children }) => {
             }
             else if(res.status===404){
                 const body = { userEmail};
-                const response = await fetch(`http://localhost:8080/api/carrito`,{
+                const response = await fetch(`http://localhost:8080/carrito`,{
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export const CartContextProvider = ({ children }) => {
 
     const aggItem = async (_id, newproduct, token) =>{
         try{
-            const res = await fetch(`http://localhost:8080/api/carrito/${_id}/productos`,{
+            const res = await fetch(`http://localhost:8080/carrito/${_id}/productos`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export const CartContextProvider = ({ children }) => {
       }
       const limpiarCarrito = async(_id, token)=> {
         try{
-            const res = await fetch(`http://localhost:8080/api/carrito/${_id}/productos`,{
+            const res = await fetch(`http://localhost:8080/carrito/${_id}/productos`,{
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ export const CartContextProvider = ({ children }) => {
       }
       const eliminarItem = async(_id, id_prod, token)=> {
         try{
-            const res = await fetch(`http://localhost:8080/api/carrito/${_id}/productos/${id_prod}`,{
+            const res = await fetch(`http://localhost:8080/carrito/${_id}/productos/${id_prod}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ export const CartContextProvider = ({ children }) => {
       const crearOrden = async(id_carrito, token)=> {
         try{
             const body = { id_carrito }
-            const res = await fetch(`http://localhost:8080/api/orden/`,{
+            const res = await fetch(`http://localhost:8080/orden/`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -146,7 +146,7 @@ export const CartContextProvider = ({ children }) => {
       }
       const listarOrdenes = async(userMail, token)=> {
         try{
-            const res = await fetch(`http://localhost:8080/api/orden/${userMail}`,{
+            const res = await fetch(`http://localhost:8080/orden/${userMail}`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

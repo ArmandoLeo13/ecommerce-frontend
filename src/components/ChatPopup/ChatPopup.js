@@ -71,7 +71,7 @@ const ChatPopup = () => {
             {/* Here you can render the list of messages */}
             {messages.map((msg) => 
                 <div key={msg._id}>
-                  <p>{msg.timestamp} {msg.name}: {msg.text}</p>
+                  <p className='chat-item'>{msg.timestamp} {msg.name}: {msg.text}</p>
                 </div>
             )}
           </div>

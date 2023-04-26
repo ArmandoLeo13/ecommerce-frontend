@@ -26,8 +26,19 @@
 }
 .chat-header span{
     font-weight: bold;
-    padding-right: 95px;
+    padding-right: 90px;
 }
 .close-btn{
     background-color: red;
+}
+.chat-messages{
+    height: 300px;
+    overflow-y: scroll;
+    max-width: 275px;
+}
+.chat-item{
+    background-color: #1019c9;
+    color: white;
+    border-radius: 7px;
+    padding: 2.5px;
 }

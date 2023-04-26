@@ -21,7 +21,13 @@ const ItemListContainer = ({ greeting }) => {
         const fetchProducts = async () => {
             try {
                 const response = await getProductos();
-                if(!response){
+                if(response===404){
+                    return (
+                        <div>
+                            <h2>No se encontraron productos</h2>
+                        </div>
+                    )
+                }else if(!response){
                     sessionStorage.clear()
                     Notificacion(SesionExpirada);
                     setIsAuthenticated(false)
