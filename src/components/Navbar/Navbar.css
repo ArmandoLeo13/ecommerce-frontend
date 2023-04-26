@@ -1,0 +1,26 @@
+.Navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: black;
+}
+.Nav2{
+    display: flex;
+    justify-content: space-around;
+}
+
+.Nav2 button{
+    margin-right: 0.5rem;
+}
+
+.nombre{
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+

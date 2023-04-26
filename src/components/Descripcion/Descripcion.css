@@ -1,0 +1,28 @@
+.cajaTexto {
+    width: 600px;
+    padding: 30px;
+    position: relative;    
+    background: #232323;  
+    border-radius: 20px;  
+    overflow: hidden;  
+    margin: 2.5rem auto ;
+    color: #fff;
+    z-index: -2;
+    max-height: 550px;
+}
+.cajaTexto::before{
+    content: "";  
+    position: absolute;  
+    top: 100px;
+    left: -300px;
+    width: 100%;  
+    height: 100%;  
+    background: #1bc0e9;  
+    clip-path: circle(100px);
+    z-index: -1;
+    
+}
+.cajaTexto p{
+    text-align: justify;
+    padding: 1rem;
+}

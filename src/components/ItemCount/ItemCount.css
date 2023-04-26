@@ -1,0 +1,13 @@
+.Contador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #fff
+}
+
+.Contador button{
+    font-size: large;
+    font-weight: bold;
+    max-height: 20px;
+}

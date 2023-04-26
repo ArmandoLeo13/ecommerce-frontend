@@ -1,0 +1,33 @@
+.chat-popup{
+    display: flex;
+    align-items: start;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
+.chat-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    height: fit-content;
+    width: fit-content;
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
+.open-btn{
+    z-index: 101;
+}
+.chat-header{
+    padding-left: 40%;
+}
+.chat-header{
+    padding-left: 40%;
+}
+.chat-header span{
+    font-weight: bold;
+    padding-right: 95px;
+}
+.close-btn{
+    background-color: red;
+}

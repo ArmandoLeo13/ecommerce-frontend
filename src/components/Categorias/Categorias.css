@@ -1,0 +1,20 @@
+.cajaCategorias{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categoria {  
+    position: relative;  
+    width: 320px;  
+    height: 100px;  
+    background: #ffff;  
+    border-radius: 20px; 
+    border-style: solid;
+    border-color: black;
+    border-width: 2px; 
+    overflow: hidden;  
+    margin: 60px;
+    box-shadow: black;
+  }  
